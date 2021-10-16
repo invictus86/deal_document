@@ -37,7 +37,7 @@ def CopyFile(filepath, newPath):
 if __name__ == "__main__":
     # path = input("输入需要复制文件目录：")
     # path = "./xuekewang"
-    path = r"I:\新建文件夹"
+    path = r"E:\0-199剩余-副本"
     # 创建目标文件夹
     mkPath = path + "./总文件/"
     CreateDir(mkPath)
