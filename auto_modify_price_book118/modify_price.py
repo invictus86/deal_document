@@ -25,7 +25,7 @@ ST.CVSTRATEGY = ["tpl", "sift", "brisk"]
 # list_user_password = [
 #     ["chaojida", "a1519517487"]
 # ]
-list_data = ["chaojida1", "a1519517487"]
+list_data = ["chaojida2", "a1519517487"]
 
 with open("./2021-09-26-14-33-01-0.txt", "r") as f:
     word_list = f.readlines()
@@ -64,7 +64,7 @@ class Ppt(object):
         self.driver.implicitly_wait(3)  # seconds
 
     def run(self):
-        for word in word_list[47:]:
+        for word in word_list[48:]:
             try:
                 print(list_data)
                 self.run_drive()
@@ -87,7 +87,7 @@ class Ppt(object):
                 print(word)
                 print(word_list.index(word))
 
-                time.sleep(10)
+                time.sleep(5)
                 handles = self.driver.window_handles
                 self.driver.switch_to.window(handles[0])
                 time.sleep(0.5)
