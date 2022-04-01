@@ -15,6 +15,8 @@ from test_code import download_ppt
 # 保存数据
 # 下一页定位，有循环终止条件
 
+
+
 def write_json_file(file_path, load_dict):
     with open(file_path, "w") as dump_f:
         json.dump(load_dict, dump_f)
@@ -23,75 +25,77 @@ def write_json_file(file_path, load_dict):
 class Ppt(object):
 
     def __init__(self):
-        self.url = 'https://www.docin.com/l-10008-0-0-0-4-{}.html'
-        self.path = "C:\Program Files (x86)\Google\Chrome\Application\chromedriver.exe"
+        self.url = 'https://www.jinchutou.com/shtml/view-{}.html'
+        # self.path = "C:\Program Files (x86)\Google\Chrome\Application\chromedriver.exe"
+        self.path = r"C:\Users\Administrator\AppData\Local\Google\Chrome\Application\chromedriver.exe"
         self.driver = webdriver.Chrome(executable_path=self.path)
         self.driver.implicitly_wait(30)  # seconds
-        self.file = open('ppt.json', 'w')
+        # self.file = open('ppt.json', 'w')
 
-    def parse_data(self):
+    # def parse_data(self):
+    #
+    #     # down_ico = self.driver.find_elements_by_xpath('//*[@id="btnSoftDownload"]')
+    #     # down_ico.click()
+    #
+    #     # 获取房间列表
+    #     # next_ico = self.driver.find_element_by_class_name('nextPage xh-highlight')
+    #     # next_ico.click()
+    #
+    #     ppt_list = self.driver.find_elements_by_xpath('//*[@id="showStyle"]/div[4]/dl/dd/a')
+    #     # print(ppt_list)
+    #     # /html/body/div[3]/div[2]/div[2]/div[3]//div/a
+    #     # //*[@id="4048888"]/div[1]/a
+    #     print(len(ppt_list))
+    #     # print(ppt_list)
+    #     # href_list = self.driver.find_elements_by_xpath('/html/body/div[6]/dl/dd/ul/li/h2/a/@href')
+    #     # image_list = self.driver.find_elements_by_xpath('/html/body/div[6]/dl/dd/ul/li/a/img')
+    #     # name_list = self.driver.find_elements_by_xpath('/html/body/div[6]/dl/dd/ul/li/h2/a')
+    #     # print(len(houses_list))
+    #     data_list = []
+    #     # 遍历节点列表
+    #     for ppt in ppt_list:
+    #         ppt_href = ppt.get_attribute('href')
+    #         print(ppt_href)
+    #         data_list.append(ppt_href)
+    #         # js = 'window.open({}});'.format(ppt_href)  # 通过执行js，开启一个新的窗口
+    #         # self.driver.execute_script(js)
+    #         # # self.driver.get(ppt_href)
+    #         # # ppt.click()
+    #         # time.sleep(1)
+    #         # self.driver.switch_to.window(self.driver.window_handles[-1])
+    #         # # self.driver.close()
+    #         # down_ico = self.driver.find_elements_by_xpath('//*[@id="btnSoftDownload"]')
+    #         # down_ico.click()
+    #         # time.sleep(1)
+    #         #
+    #         # # self.driver.switch_to.window(self.driver.window_handles[-1])
+    #         # self.driver.close()
+    #         #
+    #         # # self.driver.switch_to.window(self.driver.window_handles[-1])
+    #         # # self.driver.close()
+    #         # self.driver.switch_to.window(self.driver.window_handles[-1])
+    #         # time.sleep(1)
+    #         # if (ppt_list.index(ppt) + 1) % 14 == 0:
+    #         #     next_ico = self.driver.find_element_by_xpath('//*[@id="mainBox"]/div/div/div/span[9]')
+    #         #     next_ico.click()
+    #     return data_list
 
-        # down_ico = self.driver.find_elements_by_xpath('//*[@id="btnSoftDownload"]')
-        # down_ico.click()
+    # def save_data(self, data_list):
+    #     for data in data_list:
+    #         print(data)
+    #         json_data = json.dumps(data, ensure_ascii=False) + ',\n'
+    #         self.file.write(json_data)
 
-        # 获取房间列表
-        # next_ico = self.driver.find_element_by_class_name('nextPage xh-highlight')
-        # next_ico.click()
-
-        ppt_list = self.driver.find_elements_by_xpath('//*[@id="showStyle"]/div[4]/dl/dd/a')
-        # print(ppt_list)
-        # /html/body/div[3]/div[2]/div[2]/div[3]//div/a
-        # //*[@id="4048888"]/div[1]/a
-        print(len(ppt_list))
-        # print(ppt_list)
-        # href_list = self.driver.find_elements_by_xpath('/html/body/div[6]/dl/dd/ul/li/h2/a/@href')
-        # image_list = self.driver.find_elements_by_xpath('/html/body/div[6]/dl/dd/ul/li/a/img')
-        # name_list = self.driver.find_elements_by_xpath('/html/body/div[6]/dl/dd/ul/li/h2/a')
-        # print(len(houses_list))
-        data_list = []
-        # 遍历节点列表
-        for ppt in ppt_list:
-            ppt_href = ppt.get_attribute('href')
-            print(ppt_href)
-            data_list.append(ppt_href)
-            # js = 'window.open({}});'.format(ppt_href)  # 通过执行js，开启一个新的窗口
-            # self.driver.execute_script(js)
-            # # self.driver.get(ppt_href)
-            # # ppt.click()
-            # time.sleep(1)
-            # self.driver.switch_to.window(self.driver.window_handles[-1])
-            # # self.driver.close()
-            # down_ico = self.driver.find_elements_by_xpath('//*[@id="btnSoftDownload"]')
-            # down_ico.click()
-            # time.sleep(1)
-            #
-            # # self.driver.switch_to.window(self.driver.window_handles[-1])
-            # self.driver.close()
-            #
-            # # self.driver.switch_to.window(self.driver.window_handles[-1])
-            # # self.driver.close()
-            # self.driver.switch_to.window(self.driver.window_handles[-1])
-            # time.sleep(1)
-            # if (ppt_list.index(ppt) + 1) % 14 == 0:
-            #     next_ico = self.driver.find_element_by_xpath('//*[@id="mainBox"]/div/div/div/span[9]')
-            #     next_ico.click()
-        return data_list
-
-    def save_data(self, data_list):
-        for data in data_list:
-            print(data)
-            json_data = json.dumps(data, ensure_ascii=False) + ',\n'
-            self.file.write(json_data)
-
-    def __del__(self):
-        self.driver.close()
-        self.file.close()
+    # def __del__(self):
+    #     self.driver.close()
+    #     self.file.close()
 
     def run(self):
         # 开启循环
         # 构建url
         # 发送请求
-        self.driver.get((self.url).format("1"))
+        for i in range(244954585, 244954685):
+            self.driver.get((self.url).format(i))
         # time.sleep(20)
         # try:
         #     self.driver.find_elements_by_xpath('/html/body/div[2]/div[2]/div/div[2]/a')[0].click()
@@ -125,11 +129,11 @@ class Ppt(object):
         #     #     continue
         #     #     print()
 
-        data_list = self.parse_data()
-        print(data_list)
-        with open("111.used_txt", "a") as f:
-            for href in data_list:
-                f.write(href + "\r")
+        # data_list = self.parse_data()
+        # print(data_list)
+        # with open("111.used_txt", "a") as f:
+        #     for href in data_list:
+        #         f.write(href + "\r")
         # # list_all = []
         #     self.driver.get((self.url).format("1"))
         # # time.sleep(20)

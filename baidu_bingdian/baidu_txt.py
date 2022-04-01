@@ -21,17 +21,20 @@ for file_name in list_dir_used:
     all_url_used = all_url_used + all_file_url_used
     all_url_used = list(set(all_url_used))
 print(len(all_url_used))
-finally_url = []
-for url in all_url_current:
-    print(url)
-    if url in all_url_used:
-        pass
-    else:
-        finally_url.append(url)
+finally_url = list(set(all_url_current) - set(all_url_used))
+
+
+# finally_url = []
+# for url in all_url_current:
+#     print(url)
+#     if url in all_url_used:
+#         pass
+#     else:
+#         finally_url.append(url)
 
 print(len(finally_url))
-# file_num = math.ceil(len(finally_url) / 1500)
-file_num = math.ceil(len(finally_url) / 1500)
+# file_num = math.ceil(len(finally_url) / 2000)
+file_num = math.ceil(len(finally_url) / 2000)
 print(file_num)
 
 import datetime
@@ -55,9 +58,9 @@ for i in range(file_num):
         print(path + ' 目录已存在')
     with open("out_put_txt/{}-{}/{}-{}.txt".format(code, i, code, i), "w") as f:
         if i == (file_num - 1):
-            for url in finally_url[(1500 * i):len(finally_url)]:
+            for url in finally_url[(2000 * i):len(finally_url)]:
                 f.write(url)
         else:
-            for url in finally_url[(0 + i * 1500):(1500 * (i + 1))]:
+            for url in finally_url[(0 + i * 2000):(2000 * (i + 1))]:
                 f.write(url)
 
